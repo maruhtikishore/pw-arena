@@ -1,0 +1,133 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "validate-xpath-in-test-automation-website;verify-xpath-in-test-automation-website",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Verify Xpath in Test automation website",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "Launch the Browser",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1393458100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I Navigate to the Automation WebSite",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4226203499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I enter the Name using Xpath",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62235099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I enter the Email using Xpath",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34909300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I Click the Start Button using Xpath",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60604099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I Click the Male Radio Button using Xpath",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35646199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I Select the Sunday, Tuesday and Thrusday using Xpath",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 149326099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I Print the description of the page",
+            "match": {
+              "location": "Playwrightautomation\\StepDefinition\\xpathLocator.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2734399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Xpathlocators",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "validate-xpath-in-test-automation-website",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Validate Xpath in Test automation website",
+    "tags": [],
+    "uri": "Playwrightautomation\\FeatureFile\\xpathLocator.feature"
+  }
+]

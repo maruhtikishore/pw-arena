@@ -1,0 +1,26 @@
+{
+    "default": {
+        "dryRun": false,
+        "tags":"@Xpathlocators",
+        "stdout": true,
+        "formatOptions": {
+            "snippetInterface": "async-await"
+        },
+        "paths": [
+            "Playwrightautomation/FeatureFile/**/*.feature"
+        ],
+        "require": [
+            "Playwrightautomation/StepDefinition/**/*.ts",
+            "Playwrightautomation/StepDefinition/**/*.js"
+        ],
+        "requireModule": [
+            "ts-node/register"
+        ],
+        "format": [ 
+            "summary",
+            "html:test-result/cucumber-report.html",
+            "json:test-result/cucumber-report.json",
+            "rerun:@rerun.txt"
+        ]
+    }
+}
