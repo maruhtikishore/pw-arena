@@ -11,4 +11,5 @@ Scenario: Verify Xpath in Test automation website
     Then I Click the Male Radio Button using Xpath
     Then I Select the Sunday, Tuesday and Thrusday using Xpath
     Then I Print the description of the page
+    Then I Locate the Element using Parent,preceding,following,following-sibling
 

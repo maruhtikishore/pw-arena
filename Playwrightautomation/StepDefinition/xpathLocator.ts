@@ -38,3 +38,8 @@ Then('I Print the description of the page', async function () {
   const alertText = await page.locator("//h2[contains(text(),'Alerts')]").innerText();
   console.log("Alert heading text:", alertText);
 });
+
+Then('I Locate the Element using Parent,preceding,following,following-sibling', async() =>{
+  await page.locator("//a[text()='Online Trainings']//preceding::a[text()='Udemy Courses']//preceding::a[text()='Home']//following::a[text()='Blog']").click()
+
+})
