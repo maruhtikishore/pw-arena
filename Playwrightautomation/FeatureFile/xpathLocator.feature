@@ -12,4 +12,7 @@ Scenario: Verify Xpath in Test automation website
     Then I Select the Sunday, Tuesday and Thrusday using Xpath
     Then I Print the description of the page
     Then I Locate the Element using Parent,preceding,following,following-sibling
-
+    Then Select Country Static DropDown
+    Then Select Color Dynamic Dropdown
+    Then Drag and Drop
+    Then Take screenshot 

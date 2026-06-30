@@ -16,12 +16,3 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
-
-test('Automation WorkOut', async ({ page }) => {
-  await page.goto("https://testautomationpractice.blogspot.com/")
-   const name = page.locator("//input[@id='name']")
-    await name.fill("KISHORE M")  
-    await expect.soft(name).toHaveValue("KISHORE")
-});
-
-
