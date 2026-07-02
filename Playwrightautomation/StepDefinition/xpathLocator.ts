@@ -82,3 +82,53 @@ Then('Take screenshot', async () => {
   
 })
 
+Then("I handle simple alert", async () => {
+  // Write code
+  //await page.goto("https://testautomationpractice.blogspot.com/");
+  // await page.waitForSelector("//button[@id='alertBtn']");
+  await page.locator("//button[@id='alertBtn']").scrollIntoViewIfNeeded();
+    //Register the dialog event
+  page.on("dialog", async (dialog) => {
+    //await page.waitForTimeout(2000);
+    console.log("Alert_Type: ", await dialog.type());
+    console.log("Alert_Msg: ", await dialog.message());
+    await dialog.accept();
+  });
+  await page.locator("//button[@id='alertBtn']").click();
+
+});
+
+Then("I handle confirm alert", async () => {
+  // Write code
+  await page.goto("https://testautomationpractice.blogspot.com/");
+  // await page.waitForSelector("//button[@id='confirmBtn']");
+  await page.locator("//button[@id='confirmBtn']").scrollIntoViewIfNeeded();
+  //Register the dialog event
+  page.on("dialog", async (dialog) => {
+    //await page.waitForTimeout(2000);
+    console.log("Alert_Type: ", await dialog.type());
+    console.log("Alert_Msg: ", await dialog.message());
+    await dialog.accept();
+    // await dialog.dismiss();
+  });
+  // await page.locator("//button[@id='confirmBtn']").click();
+  await page.click("//button[@id='confirmBtn']");
+});
+
+Then("I handle prompt alert", async  () =>{
+  // Write code
+  await page.goto("https://testautomationpractice.blogspot.com/");
+  // await page.waitForSelector("//button[@id='confirmBtn']");
+  await page.locator("//button[@id='promptBtn']").scrollIntoViewIfNeeded();
+  //Register the dialog event
+  page.on("dialog", async (dialog) => {
+    //await page.waitForTimeout(2000);
+    console.log("Alert_Type: ", await dialog.type());
+    console.log("Alert_Msg: ", await dialog.message());
+    await dialog.accept("Kishore M");
+    // await dialog.dismiss();
+  });
+  // await page.locator("//button[@id='confirmBtn']").click();
+  await page.click("//button[@id='promptBtn']");
+});
+
