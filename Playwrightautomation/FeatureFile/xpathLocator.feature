@@ -16,3 +16,6 @@ Scenario: Verify Xpath in Test automation website
     Then Select Color Dynamic Dropdown
     Then Drag and Drop
     Then Take screenshot 
+    Then I handle simple alert
+    Then I handle confirm alert
+    Then I handle prompt alert
