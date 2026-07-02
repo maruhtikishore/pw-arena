@@ -1,7 +1,7 @@
 {
     "default": {
         "dryRun": false,
-        "tags":"@Xpathlocators",
+        "tags":"@Dailog",
         "stdout": true,
         "formatOptions": {
             "snippetInterface": "async-await"

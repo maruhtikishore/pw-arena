@@ -47,6 +47,7 @@ Then('I Locate the Element using Parent,preceding,following,following-sibling', 
   //await Blog.click()
 })
 
+// DropDown 
 Then('Select Country Static DropDown', async () => {
   let country = await page.locator("//select[@id='country']")
   await country.scrollIntoViewIfNeeded()
@@ -58,6 +59,7 @@ Then('Select Color Dynamic Dropdown', async () => {
   await color.selectOption(['Red', 'Blue', 'Yellow'])
 })
 
+// Drag and Drop
 Then('Drag and Drop', async () => {
   let drag = await page.locator("//div[@id='draggable']")
   let drop = await page.locator("//div[@id='droppable']")
@@ -65,6 +67,8 @@ Then('Drag and Drop', async () => {
 
 })
 
+
+// Screenshot
 Then('Take screenshot', async () => {
   // Screenshot on Specific Field
   let field= await page.locator("//input[@id='name']");
@@ -82,6 +86,8 @@ Then('Take screenshot', async () => {
   
 })
 
+
+// Alert, Confirm and Prompt Dialog
 Then("I handle simple alert", async () => {
   // Write code
   //await page.goto("https://testautomationpractice.blogspot.com/");
@@ -130,5 +136,39 @@ Then("I handle prompt alert", async  () =>{
   });
   // await page.locator("//button[@id='confirmBtn']").click();
   await page.click("//button[@id='promptBtn']");
+});
+
+When('I Launch demo alerts', async function () {
+  await page.goto("https://demoqa.com/alerts");
+});
+
+// Simple Alert
+Then('Simple Alert', async function () {
+  page.once('dialog', dialog => dialog.accept());
+  await page.locator('#alertButton').click();
+});
+
+// Prompt Alert
+Then('Prompt Alert', async function () {
+  page.once('dialog', dialog => dialog.accept("Kishore"));
+  await page.locator('#promtButton').click();
+});
+
+// Confirm Alert
+Then('Confirm Alert', async function () {
+  page.once('dialog', dialog => dialog.dismiss());
+  await page.locator('#confirmButton').click();
+});
+
+// Alert Timeout
+Then('Alert Timeout', async function () {
+  page.once('dialog', async(dialog) => {
+   //await page.waitForTimeout(6000)
+   console.log(await dialog.type());
+   console.log(await dialog.message());
+    await dialog.accept();
+  });
+ 
+  await page.locator('#timerAlertButton').click();
 });
 
