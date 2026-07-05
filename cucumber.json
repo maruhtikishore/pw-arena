@@ -1,7 +1,7 @@
 {
     "default": {
         "dryRun": false,
-        "tags":"@Dailog",
+        "tags":"@Frames",
         "stdout": true,
         "formatOptions": {
             "snippetInterface": "async-await"

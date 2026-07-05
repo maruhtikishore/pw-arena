@@ -28,3 +28,8 @@ Feature: Validate Xpath in Test automation website
         Then Prompt Alert
         Then Confirm Alert
         Then Alert Timeout
+    @Frames
+      Scenario: Frames
+        Given  Launch the Browser
+        When I Launch Frame Page
+        Then Enter the field value

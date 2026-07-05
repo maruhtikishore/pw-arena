@@ -4,7 +4,9 @@ import { expect } from "playwright/test";
 
 let browser: Browser, context: BrowserContext, page: Page
 Given('Launch the Browser', async function () {
-  browser = await chromium.launch({ headless: false, })
+  browser = await chromium.launch({ headless: false,
+    args:["--start-maximized"]
+   })
   context = await browser.newContext({ viewport: null })
   page = await context.newPage()
 });
@@ -170,5 +172,70 @@ Then('Alert Timeout', async function () {
   });
  
   await page.locator('#timerAlertButton').click();
+});
+
+
+When('I Launch Frame Page', async function () {
+  await page.goto("https://ui.vision/demo/webtest/frames/");
+});
+
+
+Then('Enter the field value', async function () {
+  //await page.waitForSelector("//input[@name='mytext1']");
+
+  //await page.waitForTimeout(2000);
+
+  // Frame 1
+  let frameCount = await page.frames();
+  console.log("No of Frames: ", frameCount.length);
+  await page.frameLocator("//frame[@src='frame_1.html']").locator("//input[@name='mytext1']").fill("Kishore M");
+
+  //Frame 2
+  await page.frame({url: "https://ui.vision/demo/webtest/frames/frame_2"})?.locator("//input[@name='mytext2']").fill("frame 2");
+
+
+//  const parentFrame =  await page.frame({url: "https://ui.vision/demo/webtest/frames/frame_3"});
+//  const childFrame =  await parentFrame?.childFrames();
+//  console.log("ChildFrame Count : ", childFrame?.length);
+//  await page.locator("//input[@name='mytext1']").fill("Kishore M")
+
+  //Nested Frame 3 
+
+  //const parentFrame3 = await page.frameLocator("//frame[@src='frame_3.html']"); --Frame locator we can't able to use childframe.
+  const parentFrame3 = await page.frame({url:"https://ui.vision/demo/webtest/frames/frame_3"});
+  await parentFrame3?.locator("//input[@name='mytext3']").fill('Frame 3');
+  const childFrame = await parentFrame3?.childFrames() ?? [];  // -- why ?? []
+  console.log("ChildFrame inside Frame3 : ", childFrame);
+
+  //Handle of Child Frame
+
+  await childFrame[0].locator("//span[contains(text(),'I am a human')]").click();
+  await childFrame[0].locator("//span[contains(text(),'Web Testing')]").click();
+  await childFrame[0].locator("//span[contains(text(),'Next')]").click();
+
+//   await childFrame[1].locator("//input[@jsname='YPqjbf']").fill("kishore M");
+//   await childFrame[1].locator("//textarea[@jsname='YPqjbf']").type("Filled Child Frame");
+//   await childFrame[1].locator("//span[contains(text(),'Submit')]").click();
+
+//  const resultPage =  await childFrame[2].locator("//div[conatins(text(),'Form Filling Demo Page')]");
+//  await expect(resultPage).toHaveText("Form Filling Demo Page");
+
+
+ // Frame 4
+
+ const ParentFrame4 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_4"});
+ await ParentFrame4?.locator("//input[@name='mytext4']").fill("Frame4");
+
+
+ //Frame 5
+
+
+
+ const ParentFrame5 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_5"});
+ await ParentFrame5?.locator("//input[@name='mytext5']").fill("Frame5");
+
+
+
+
 });
 
