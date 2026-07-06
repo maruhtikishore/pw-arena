@@ -205,7 +205,7 @@ Then('Enter the field value', async function () {
   const parentFrame3 = await page.frame({url:"https://ui.vision/demo/webtest/frames/frame_3"});
   await parentFrame3?.locator("//input[@name='mytext3']").fill('Frame 3');
   const childFrame = await parentFrame3?.childFrames() ?? [];  // -- why ?? []
-  console.log("ChildFrame inside Frame3 : ", childFrame);
+  console.log("ChildFrame inside Frame3 : ", childFrame.length);
 
   //Handle of Child Frame
 
@@ -218,7 +218,7 @@ Then('Enter the field value', async function () {
   await childFrame[0].locator("//textarea[@jsname='YPqjbf']").type("Filled Child Frame");
   await childFrame[0].locator("//span[contains(text(),'Submit')]").click();
 
- const resultPage =  await childFrame[0].locator("//div[conatins(text(),'Form Filling Demo Page')]");
+ const resultPage =  await childFrame[0].locator("//div[contains(text(),'Form Filling Demo Page')]");
  await expect(resultPage).toHaveText("Form Filling Demo Page");
 
 
