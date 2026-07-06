@@ -212,13 +212,14 @@ Then('Enter the field value', async function () {
   await childFrame[0].locator("//span[contains(text(),'I am a human')]").click();
   await childFrame[0].locator("//span[contains(text(),'Web Testing')]").click();
   await childFrame[0].locator("//span[contains(text(),'Next')]").click();
+  await page.waitForTimeout(2000);
 
-//   await childFrame[1].locator("//input[@jsname='YPqjbf']").fill("kishore M");
-//   await childFrame[1].locator("//textarea[@jsname='YPqjbf']").type("Filled Child Frame");
-//   await childFrame[1].locator("//span[contains(text(),'Submit')]").click();
+  await childFrame[0].locator("//input[@jsname='YPqjbf']").fill("kishore M");
+  await childFrame[0].locator("//textarea[@jsname='YPqjbf']").type("Filled Child Frame");
+  await childFrame[0].locator("//span[contains(text(),'Submit')]").click();
 
-//  const resultPage =  await childFrame[2].locator("//div[conatins(text(),'Form Filling Demo Page')]");
-//  await expect(resultPage).toHaveText("Form Filling Demo Page");
+ const resultPage =  await childFrame[0].locator("//div[conatins(text(),'Form Filling Demo Page')]");
+ await expect(resultPage).toHaveText("Form Filling Demo Page");
 
 
  // Frame 4
@@ -226,11 +227,7 @@ Then('Enter the field value', async function () {
  const ParentFrame4 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_4"});
  await ParentFrame4?.locator("//input[@name='mytext4']").fill("Frame4");
 
-
  //Frame 5
-
-
-
  const ParentFrame5 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_5"});
  await ParentFrame5?.locator("//input[@name='mytext5']").fill("Frame5");
 
