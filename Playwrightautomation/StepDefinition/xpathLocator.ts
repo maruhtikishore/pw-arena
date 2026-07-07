@@ -221,7 +221,6 @@ Then('Enter the field value', async function () {
  const resultPage =  await childFrame[0].locator("//div[contains(text(),'Form Filling Demo Page')]");
  await expect(resultPage).toHaveText("Form Filling Demo Page");
 
-
  // Frame 4
 
  const ParentFrame4 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_4"});
@@ -231,8 +230,25 @@ Then('Enter the field value', async function () {
  const ParentFrame5 = await page.frame({url : " https://ui.vision/demo/webtest/frames/frame_5"});
  await ParentFrame5?.locator("//input[@name='mytext5']").fill("Frame5");
 
+});
 
 
+Then('I upload single file', async function () {
+  //await page.goto("https://testautomationpractice.blogspot.com/");
+  await page.getByText("Upload Files").scrollIntoViewIfNeeded();
+  let singleFile = await page.locator("input#singleFileInput");
+  //upload single File
+  await singleFile.setInputFiles(["./screenshot/Before.png"]);
+  await page.getByText("Upload Single File").click();
+  
+});
 
+Then('I upload multiple files', async function () {
+  //await page.goto("https://testautomationpractice.blogspot.com/");
+  await page.getByText("Upload Files").scrollIntoViewIfNeeded();
+  let multipleFile = await page.locator("input#multipleFilesInput");
+  //upload multiple File
+  await multipleFile.setInputFiles(["./screenshot/Before.png", "./screenshot/after.png"]);
+  await page.getByText("Upload Multiple Files").click();
 });
 

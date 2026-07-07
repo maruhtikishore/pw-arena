@@ -1,7 +1,7 @@
 {
     "default": {
         "dryRun": false,
-        "tags":"@Frames",
+        "tags":"@uploadFile",
         "stdout": true,
         "formatOptions": {
             "snippetInterface": "async-await"

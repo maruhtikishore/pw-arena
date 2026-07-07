@@ -1,4 +1,4 @@
-
+@E2E
 Feature: Validate Xpath in Test automation website
 
     @Xpathlocators
@@ -33,3 +33,9 @@ Feature: Validate Xpath in Test automation website
         Given  Launch the Browser
         When I Launch Frame Page
         Then Enter the field value
+    @uploadFile
+      Scenario: Upload File
+        Given Launch the Browser
+        When I Navigate to the Automation WebSite
+        Then I upload single file
+        Then I upload multiple files
