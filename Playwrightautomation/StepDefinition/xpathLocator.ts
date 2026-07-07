@@ -240,6 +240,9 @@ Then('I upload single file', async function () {
   //upload single File
   await singleFile.setInputFiles(["./screenshot/Before.png"]);
   await page.getByText("Upload Single File").click();
+
+  // Clearing the selected files
+  await singleFile.setInputFiles([]);
   
 });
 
