@@ -255,3 +255,16 @@ Then('I upload multiple files', async function () {
   await page.getByText("Upload Multiple Files").click();
 });
 
+// WEB TABLE
+
+Then("Handling Web Table", async()=>{
+  await page.goto("https://testautomationpractice.blogspot.com/");
+  let rows= await page.locator("//table[@name='BookTable']//child::tbody//child::tr").all();
+  console.log("Total Number of rows: ",rows.length);
+  //console.log("Total Number of rows: ",rows);
+
+  for( let row of rows){
+     let rowData= await row.locator("td").allTextContents();
+     console.log("Row Data:", rowData);
+  }
+})

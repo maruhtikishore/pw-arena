@@ -39,3 +39,7 @@ Feature: Validate Xpath in Test automation website
         When I Navigate to the Automation WebSite
         Then I upload single file
         Then I upload multiple files
+    @WebTable
+      Scenario: Handle Web Table
+        Given Launch the Browser
+        Then Handling Web Table
