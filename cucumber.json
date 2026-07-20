@@ -1,7 +1,7 @@
 {
     "default": {
         "dryRun": false,
-        "tags":"@uploadFile",
+        "tags":"@ecommerce",
         "stdout": true,
         "formatOptions": {
             "snippetInterface": "async-await"
