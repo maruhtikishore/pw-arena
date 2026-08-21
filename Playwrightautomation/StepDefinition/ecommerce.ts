@@ -36,4 +36,5 @@ Then('Click on the Register Button', async () => {
     await page.screenshot({path:"./screenshot/result.png"})
     
     await page.getByText(" Warning: E-Mail Address is already registered!");
+    //await page.screenshot({path:"../FeatureFile/"})
 })
